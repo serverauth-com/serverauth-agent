@@ -1,5 +1,7 @@
 # ServerAuth Agent
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/serverauth-com/serverauth-agent)](https://goreportcard.com/report/github.com/serverauth-com/serverauth-agent)
+
 This repository contains the source code for the ServerAuth Agent. A small Go based package that is used to synchronize your account SSH keys.
 
 In most cases you can use the installer provided inside your ServerAuth account, which obtains the latest stable release of the agent from Github. However if you'd prefer to build the package from source, please see below.
