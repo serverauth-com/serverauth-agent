@@ -47,7 +47,7 @@ var addCmd = &cobra.Command{
 		u, err := user.Lookup(username)
 		if err != nil {
 			color.Red("Unable to find user `%s`. Please check the username, and re-create the user on ServerAuth.", username)
-			return
+			os.Exit(1)
 		}
 
 		color.Green("Found system user: %s\nSetting up ServerAuth for the account.", u.Username)
