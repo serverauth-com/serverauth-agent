@@ -75,7 +75,7 @@ var addCmd = &cobra.Command{
 		homeDir := u.HomeDir
 		keysDir := homeDir + "/.ssh"
 		keysFile := keysDir + "/authorized_keys"
-		backupKeysFile := keysDir + "/.ssh/authorized_keys.bak"
+		backupKeysFile := keysDir + "/authorized_keys.bak"
 
 		// If the .ssh directory doesnt exist, create it and set it to be owned by the user
 		if _, keysDirErr := os.Stat(keysDir); os.IsNotExist(keysDirErr) {
