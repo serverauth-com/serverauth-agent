@@ -1,3 +1,9 @@
 *.code-workspace
 .idea
 .DS_Store
+pkg/*
+src/*
+!src/cmd/*
+!src/.cobra.yml
+!src/serverauth.go
+serverauth
