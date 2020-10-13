@@ -7,3 +7,14 @@ src/*
 !src/.cobra.yml
 !src/serverauth.go
 serverauth
+dist/*
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+*.tar.gz
+build.sh

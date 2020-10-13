@@ -25,7 +25,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
 	"github.com/spf13/viper"
@@ -47,9 +46,6 @@ var rootCmd = &cobra.Command{
 	Use:   "serverauth",
 	Short: "ServerAuth Server Agent",
 	Long:  `The ServerAuth Server Agent is an easy to use command line application, allowing your server to automatically sync your teams SSH keys.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -63,12 +59,6 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
-
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	//rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.serverauth.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -80,8 +70,8 @@ func initConfig() {
 	viper.AutomaticEnv() // read in environment variables that match
 
 	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err != nil {
-		color.Red("Your server is not configured to use ServerAuth!")
-		fmt.Println("Please follow the instructions on your server details page inside your ServerAuth account, or contact us for assistance.", viper.ConfigFileUsed())
-	}
+	// if err := viper.ReadInConfig(); err != nil {
+	// 	color.Red("Your server is not configured to use ServerAuth!")
+	// 	fmt.Println("Please follow the instructions on your server details page inside your ServerAuth account, or contact us for assistance.", viper.ConfigFileUsed())
+	// }
 }

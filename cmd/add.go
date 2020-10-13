@@ -62,6 +62,13 @@ var addCmd = &cobra.Command{
 			panic("There was a problem setting up the user account. Please try again or contact ServerAuth for assistance")
 		}
 
+		for _, data := range accounts {
+			if data.Username == username {
+				color.Green("The user %s is already configured - no changes needed.", data.Username)
+				os.Exit(1)
+			}
+		}
+
 		// Append the new account and update the config
 		accounts = append(accounts, Account{username, apikey})
 		viper.Set("accounts", accounts)

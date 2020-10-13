@@ -78,7 +78,7 @@ var syncCmd = &cobra.Command{
 
 		if len(baseDomain) <= 0 {
 			// No overridden base domain, fall back to the default
-			baseDomain = "https://api.serverauth.com/v1/"
+			baseDomain = "https://api.serverauth.com/"
 		}
 
 		// Build the base url
@@ -109,7 +109,7 @@ var syncCmd = &cobra.Command{
 			}
 
 			// Set our custom useragent
-			req.Header.Set("User-Agent", "ServerAuthAgent-v1.0.0;"+runtime.GOOS)
+			req.Header.Set("User-Agent", "ServerAuthAgent-v2.0.0;"+runtime.GOOS)
 
 			// Run the request
 			res, getErr := httpClient.Do(req)
