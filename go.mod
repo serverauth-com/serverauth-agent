@@ -11,5 +11,5 @@ require (
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/shirou/gopsutil v2.20.6+incompatible
 	github.com/spf13/viper v1.7.0
-	golang.org/x/sys v0.0.0-20200316230553-a7d97aace0b0 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
