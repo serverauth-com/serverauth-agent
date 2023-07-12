@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/serverauth-com/serverauth-agent/v2/cmd"
+import "github.com/serverauth-com/serverauth-agent/cmd"
 
 func main() {
 	cmd.Execute()

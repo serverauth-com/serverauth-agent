@@ -33,8 +33,8 @@ import (
 var cfgFile string
 
 type Account struct {
-	Username string
-	ApiKey   string
+	Username string `yaml:"username"`
+	ApiKey   string `yaml:"apiKey"`
 }
 
 var keysFileTemplate = []byte(`# This file is managed by ServerAuth.\n

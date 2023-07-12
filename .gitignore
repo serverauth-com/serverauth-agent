@@ -17,4 +17,6 @@ dist/*
 *.out
 vendor/
 *.tar.gz
-build.sh
+github.com/
+golang.org/
+gopkg.in/

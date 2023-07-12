@@ -23,7 +23,8 @@ package cmd
 
 import (
 	"os/user"
-
+    "fmt"
+    "time"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -42,6 +43,13 @@ var removeCmd = &cobra.Command{
 			return
 		}
 
+        // Sleep for 1 second.
+        time.Sleep(1 * time.Second)
+
+		if err := viper.ReadInConfig(); err != nil {
+        	fmt.Println("Failed to read the config file:", viper.ConfigFileUsed())
+        }
+
 		// Load existing accounts from config
 		var accounts []Account
 		configErr := viper.UnmarshalKey("accounts", &accounts)
@@ -49,6 +57,7 @@ var removeCmd = &cobra.Command{
 		if configErr != nil {
 			panic("There was a problem setting up the user account. Please try again or contact ServerAuth for assistance")
 		}
+
 
 		// Remove the account and update the config
 		// Loop over accounts and search for the username
@@ -61,6 +70,10 @@ var removeCmd = &cobra.Command{
 
 		// Save the updated accounts list
 		viper.Set("accounts", updatedAccounts)
+
+		// Sleep for 1 second to allow the config to be written on slower systems
+        time.Sleep(1 * time.Second)
+
 		viper.WriteConfig()
 		color.Green("\nThe selected account has been removed from ServerAuth.")
 		color.Green("\nThe authorized_keys file has been left in tact to allow you to manually update it.")
@@ -72,5 +85,5 @@ func init() {
 
 	// User flag
 	removeCmd.Flags().StringVarP(&username, "username", "u", "", "The username of the system account to add to ServerAuth")
-	removeCmd.MarkFlagRequired("user")
+	removeCmd.MarkFlagRequired("username")
 }
